@@ -155,17 +155,17 @@ def generate_launch_description():
         ),
 
         # Spawn Dock
-        Node(
-            package='ros_gz_sim',
-            executable='create',
-            arguments=['-name', dock_name,
-                       '-x', x_dock,
-                       '-y', y_dock,
-                       '-z', z,
-                       '-Y', yaw_dock,
-                       '-topic', 'standard_dock_description'],
-            output='screen',
-        ),
+        # Node(
+        #     package='ros_gz_sim',
+        #     executable='create',
+        #     arguments=['-name', dock_name,
+        #                '-x', x_dock,
+        #                '-y', y_dock,
+        #                '-z', z,
+        #                '-Y', yaw_dock,
+        #                '-topic', 'standard_dock_description'],
+        #     output='screen',
+        # ),
 
         # ROS IGN bridge
         IncludeLaunchDescription(
@@ -218,22 +218,22 @@ def generate_launch_description():
 
         # OAKD static transform
         # Required for pointcloud. See https://github.com/gazebosim/gz-sensors/issues/239
-        Node(
-            name='camera_stf',
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            output='screen',
-            arguments=[
-                '0', '0', '0',
-                '1.5707', '-1.5707', '0',
-                'oakd_rgb_camera_optical_frame',
-                [robot_name, '/oakd_rgb_camera_frame/rgbd_camera']
-            ],
-            remappings=[
-                ('/tf', 'tf'),
-                ('/tf_static', 'tf_static'),
-            ]
-        ),
+        # Node(
+        #     name='camera_stf',
+        #     package='tf2_ros',
+        #     executable='static_transform_publisher',
+        #     output='screen',
+        #     arguments=[
+        #         '0', '0', '0',
+        #         '1.5707', '-1.5707', '0',
+        #         'oakd_rgb_camera_optical_frame',
+        #         [robot_name, '/oakd_rgb_camera_frame/rgbd_camera']
+        #     ],
+        #     remappings=[
+        #         ('/tf', 'tf'),
+        #         ('/tf_static', 'tf_static'),
+        #     ]
+        # ),
 
     ])
 
