@@ -90,13 +90,13 @@ def generate_launch_description():
                 '.sdf',
                 ' -r',
                 ' -v 4',
-                ' --gui-config ',
-                PathJoinSubstitution([
-                    pkg_turtlebot4_gz_bringup,
-                    'gui',
-                    LaunchConfiguration('model'),
-                    'gui.config'
-                ])
+                # ' --gui-config ',
+                # PathJoinSubstitution([
+                #     pkg_turtlebot4_gz_bringup,
+                #     'gui',
+                #     LaunchConfiguration('model'),
+                #     'gui.config'
+                # ])
             ])
         ]
     )
@@ -112,7 +112,7 @@ def generate_launch_description():
     # Create launch description and add actions
     ld = LaunchDescription(ARGUMENTS)
     ld.add_action(gz_resource_path)
-    ld.add_action(gz_gui_plugin_path)
+    # ld.add_action(gz_gui_plugin_path)
     ld.add_action(gazebo)
     ld.add_action(clock_bridge)
     return ld
